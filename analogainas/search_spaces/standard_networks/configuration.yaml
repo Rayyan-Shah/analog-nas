@@ -1,0 +1,29 @@
+configuration = """
+method: bayes
+early_terminate:
+  min_iter: 100
+  type: hyperband
+metric:
+  goal: minimize
+  name: training_loss
+parameters:
+  logging_step_frequency:
+    value: 5
+  max_seq_length:
+    value: 320
+  batch_size_train:
+    value: 16
+  batch_size_eval:
+    value: 32
+  weight_decay:
+    value: 0.0005
+  num_training_epochs:
+    value: 1
+  learning_rate:
+    distribution: uniform
+    max: 6.0 # 10 ** -max
+    min: 1.0 # 10 ** -min
+"""
+with open("configuration.yaml", "w") as file:
+    file.write(configuration[1:])
+
