@@ -27,7 +27,7 @@ def main(t_inferences=[0., 3600., 86400.], n_reps=5, early_exit_n_iters=-1):
     weight_decay = wandb.config.weight_decay
     num_training_epochs = wandb.config.num_training_epochs
     learning_rate = 10 ** -wandb.config.learning_rate
-    model_id = "csarron/mobilebert-uncased-squad-v1"
+    model_id = "csarron/mobilebert-uncased-squad-v1" # MobileBERT fine-tuned on SQuAD v1
 
     model, tokenizer = load_model_tokenizer(model_id, "data")
     train_dataloader, train_examples, train_features = load_dataloader_examples_features(model_id, tokenizer, evaluate=False, batch_size=batch_size_train, max_seq_length=max_seq_length)
